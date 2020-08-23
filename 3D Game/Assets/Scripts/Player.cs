@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         playerBody.velocity = inputVector;
-        if(jump)
+        if(jump && IsGrounded())
         {
             playerBody.AddForce(Vector3.up * 20f, ForceMode.Impulse);
             jump = false;
@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     bool IsGrounded()
     {
         float distance = GetComponent<Collider>().bounds.extents.y + 0.01f;
-        return false;
+        Ray ray = new Ray(transform.position, Vector3.down);
+        return Physics.Raycast(ray, distance);
     }
 }
