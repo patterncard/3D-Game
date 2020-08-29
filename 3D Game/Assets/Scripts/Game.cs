@@ -23,7 +23,7 @@ public class Game : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        if(!lastLevel)
+        if (!lastLevel)
         {
             string sceneName = "Level-" + nextLevel;
             SceneManager.LoadScene(sceneName);
@@ -38,7 +38,7 @@ public class Game : MonoBehaviour
 
     public void ReloadCurrentLevel()
     {
-        SceneManager.LoadScene("Leevel-" + level);
+        SceneManager.LoadScene("Level-" + level);
     }
 
     public void Quit()
