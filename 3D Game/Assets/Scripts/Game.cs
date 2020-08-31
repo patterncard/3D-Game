@@ -26,19 +26,19 @@ public class Game : MonoBehaviour
         if (!lastLevel)
         {
             string sceneName = "Level-" + nextLevel;
-            SceneManager.LoadScene(sceneName);
+            LoadLevel(sceneName);
         }
         else
         {
             // go to main menu
-            SceneManager.LoadScene("Level-1");
+            LoadLevel("Level-1");
         }
 
     }
 
     public void ReloadCurrentLevel()
     {
-        SceneManager.LoadScene("Level-" + level);
+        LoadLevel("Level-" + level);
     }
 
     public void Quit()
