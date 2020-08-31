@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     private Rigidbody playerBody;
-    [SerializeField]
     private Game game;
     private bool jump;
 
@@ -14,6 +13,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        game = FindObjectOfType<Game>();
         // playerBody = GetComponent<Rigidbody>();
     }
 
