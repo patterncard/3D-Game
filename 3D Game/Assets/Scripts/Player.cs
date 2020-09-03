@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Runtime.InteropServices;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,10 @@ public class Player : MonoBehaviour
     private Rigidbody playerBody;
     private Game game;
     private bool jump;
+    [SerializeField]
+    private TMPro.TextMeshProGUI coinText;
+    [SerializeField]
+    private int coins;
 
     private Vector3 inputVector;
     // Start is called before the first frame update
@@ -50,6 +55,26 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             game.ReloadCurrentLevel();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coin"))
+        {
+            switch (other.tag)
+            {
+                case "Coin":
+                    coins++;
+                    Destroy(other.gameObject);
+                    // update the UI
+                    break;
+                case "Goal":
+                    // check for completion
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
