@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private Game game;
     private bool jump;
     [SerializeField]
-    private TMPro.TextMeshProGUI coinText;
+    private TMPro.TextMeshProUGUI coinText;
     [SerializeField]
     private int coins;
 
@@ -67,10 +67,10 @@ public class Player : MonoBehaviour
                 case "Coin":
                     coins++;
                     Destroy(other.gameObject);
-                    // update the UI
+                    coinText.text = string.Format("Coins\n{0}", coins);
                     break;
                 case "Goal":
-                    // check for completion
+                    other.GetComponent<Goal>().CheckForCompletion(coins);
                     break;
                 default:
                     break;
