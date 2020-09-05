@@ -9,7 +9,7 @@ public class Goal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        requiredCoins = GameObject.FindWithTag("Coin").Length;
+        requiredCoins = GameObject.FindGameObjectsWithTag("Coin").Length;
     }
 
     public void CheckForCompletion(int coinCount)
