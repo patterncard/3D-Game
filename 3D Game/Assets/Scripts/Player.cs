@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private bool jump;
     [SerializeField]
     private TMPro.TextMeshProUGUI coinText;
+    private GameObject sword;
     [SerializeField]
     private int coins;
 
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sword = transform.GetChild(0).gameObject;
         game = FindObjectOfType<Game>();
         // playerBody = GetComponent<Rigidbody>();
     }
@@ -31,6 +33,10 @@ public class Player : MonoBehaviour
         {
             jump = true;
         }
+        if (Input.GetButtonDown("Attack"))
+        {
+            PerformAttack();
+        }
     }
 
     private void FixedUpdate()
@@ -40,6 +46,14 @@ public class Player : MonoBehaviour
         {
             playerBody.AddForce(Vector3.up * 20f, ForceMode.Impulse);
             jump = false;
+        }
+    }
+
+    private void PerformAttack()
+    {
+        if (!sword.activeSelf)
+        {
+            sword.SetActive(true);
         }
     }
 
