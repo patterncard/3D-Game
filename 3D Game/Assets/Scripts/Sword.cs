@@ -16,4 +16,12 @@ public class Sword : MonoBehaviour
             attackLenght = .5f;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
