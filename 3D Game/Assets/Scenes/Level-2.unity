@@ -1074,8 +1074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffe7a7a58cedc237ab2011508299964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
-  lastLevel: 0
+  level: 2
+  lastLevel: 1
 --- !u!4 &1368559339
 Transform:
   m_ObjectHideFlags: 0
@@ -1528,7 +1528,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 2083014055}
-  game: {fileID: 1368559338}
+  coinText: {fileID: 0}
+  coins: 0
 --- !u!1 &2115580323
 GameObject:
   m_ObjectHideFlags: 0
