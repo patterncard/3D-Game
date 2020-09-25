@@ -9,6 +9,7 @@ public class Goal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        game = FindObjectOfType<Game>();
         requiredCoins = GameObject.FindGameObjectsWithTag("Coin").Length;
     }
 

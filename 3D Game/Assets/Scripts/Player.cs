@@ -74,21 +74,18 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Coin"))
+        switch (other.tag)
         {
-            switch (other.tag)
-            {
-                case "Coin":
-                    coins++;
-                    Destroy(other.gameObject);
-                    coinText.text = string.Format("Coins\n{0}", coins);
-                    break;
-                case "Goal":
-                    other.GetComponent<Goal>().CheckForCompletion(coins);
-                    break;
-                default:
-                    break;
-            }
+            case "Coin":
+                coins++;
+                Destroy(other.gameObject);
+                coinText.text = string.Format("Coins\n{0}", coins);
+                break;
+            case "Goal":
+                other.GetComponent<Goal>().CheckForCompletion(coins);
+                break;
+            default:
+                break;
         }
     }
 }
